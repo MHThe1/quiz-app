@@ -13,7 +13,7 @@ export default function ToggleTheme() {
     return (
         <button
             onClick={toggleDarkMode}
-            className="justify-self-end w-8 h-8 rounded-full flex items-center justify-center"
+            className="w-8 h-8 rounded-full flex items-center"
         >
             {darkMode ? (
                 <SunIcon color="white" />
