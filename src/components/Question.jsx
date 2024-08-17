@@ -1,14 +1,19 @@
 import QuestionTimer from "./QuestionTImer";
 import ContentBox from "./ContentBox";
 import Answers from "./Answers";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import QUESTIONS from '../questions.js';
+
+import { CategoryContext } from "../contexts/CategoryContext.jsx";
 
 export default function Question({
     index,
     onSelect,
-    onTimeout
+    onTimeout,
+    onSkipAll
 }) {
+    const { selectedCategory } = useContext(CategoryContext);
+
     const [answer, setAnswer] = useState({
         selectedAnswer: '',
         isCorrect: null
@@ -33,14 +38,27 @@ export default function Question({
         setTimeout(() => {
             setAnswer({
                 selectedAnswer: answer,
-                isCorrect: QUESTIONS[index].answers[0] === answer
+                isCorrect: QUESTIONS[selectedCategory][index].answers[0] === answer
             })
 
-        setTimeout(() => {
-            onSelect(answer);
-            
-        }, 2000);
+            setTimeout(() => {
+                onSelect(answer);
+
+            }, 2000);
         }, 1000);
+    }
+
+    function handleSkipAnswer() {
+        setAnswer({
+            selectedAnswer: null,
+            isCorrect: null
+        });
+
+        onTimeout();
+    }
+
+    function handleSkipAll() {
+        onSkipAll();
     }
 
     let answerState = 'unanswered';
@@ -54,11 +72,11 @@ export default function Question({
     return (
         <ContentBox>
             <h2 className="mb-3 text-2xl">
-                {index + 1}. {QUESTIONS[index].text}
+                {index + 1}. {QUESTIONS[selectedCategory][index].text}
             </h2>
 
             <Answers
-                answers={QUESTIONS[index].answers}
+                answers={QUESTIONS[selectedCategory][index].answers}
                 selectedAnswer={answer.selectedAnswer}
                 answerState={answerState}
                 onSelect={handleSelectAnswer}
@@ -67,6 +85,21 @@ export default function Question({
                 key={timer}
                 timeout={timer}
                 onTimeout={answer.selectedAnswer === '' ? onTimeout : null} />
+
+            <div className="flex flex-col mt-10 items-center w-full px-4">
+                <button
+                    className="py-2 px-4 m-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-md"
+                    onClick={handleSkipAnswer}
+                >
+                    Skip Answer
+                </button>
+                <button
+                    className="py-2 px-4 mb-2 bg-red-400 hover:bg-red-500 text-white rounded-md"
+                    onClick={handleSkipAll}
+                >
+                    Skip All
+                </button>
+            </div>
         </ContentBox>
     )
 }

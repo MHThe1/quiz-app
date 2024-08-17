@@ -1,12 +1,18 @@
 import ContentBox from "./ContentBox.jsx";
 import QUESTIONS from "../questions.js";
 
+import { useContext } from "react";
+
+import { CategoryContext } from "../contexts/CategoryContext.jsx";
+
 export default function Summary({ userAnswers }) {
+    const { selectedCategory } = useContext(CategoryContext);
+
     let skippedAnswerCount = 0;
     let correctAnswerCount = 0;
     let incorrectAnswerCount = 0;
 
-    QUESTIONS.map((obj, index) => {
+    QUESTIONS[selectedCategory].map((obj, index) => {
         console.log(obj.answers)
         if (obj.answers[0] === userAnswers[index]) {
             correctAnswerCount += 1;
@@ -19,7 +25,7 @@ export default function Summary({ userAnswers }) {
 
     return (
         <ContentBox>
-            <div className="container text-center dark:text-stone-50 text-stone-950 text-3xl">Quiz is complete!</div>
+            <div className="container text-center dark:text-stone-50 text-stone-950 text-3xl">Quiz Completed!</div>
             <div>
                 <div className="flex justify-center items-center font-handjet text-xl my-4">
                     <p className="flex flex-col justify-center items-center border-r border-gray-300 pr-4 flex-1">
@@ -38,7 +44,7 @@ export default function Summary({ userAnswers }) {
 
                 <ol className="list-inside mt-4 space-y-4">
                     {userAnswers.map((answer, index) => {
-                        const isCorrect = QUESTIONS[index].answers[0] === answer;
+                        const isCorrect = QUESTIONS[selectedCategory][index].answers[0] === answer;
                         const isSkipped = answer === null;
 
                         return (
@@ -49,12 +55,12 @@ export default function Summary({ userAnswers }) {
                                 </h3>
                             </div>
                             
-                            <p className="text-lg mb-2">{QUESTIONS[index].text}</p>
+                            <p className="text-lg mb-2">{QUESTIONS[selectedCategory][index].text}</p>
                             <p className={`text-lg rounded-md p-1 ${isSkipped ? 'bg-gray-700 text-white' : isCorrect ? 'bg-green-400' : 'bg-red-500'}`}>
                                 {answer ?? 'Skipped'}
                             </p>
                             {!isCorrect && <p className="text-lg mt-2 rounded-md p-1 bg-green-400">
-                                Correct answer: {QUESTIONS[index].answers[0]}
+                                Correct answer: {QUESTIONS[selectedCategory][index].answers[0]}
                             </p>}
                         </li>
                     )})}
