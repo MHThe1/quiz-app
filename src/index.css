@@ -8,6 +8,13 @@
 
 
 @font-face {
+  font-family: 'SanFransicoFont';
+  src: url('/fonts/SFNSDisplay-Black.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'GabrielWeissFriends';
   src: url('/fonts/GABRWFFR.TTF') format('truetype');
   font-weight: normal;

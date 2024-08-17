@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ContentBox from "./ContentBox.jsx";
 import QUESTIONS from "../questions.js";
 import Slider from "react-slick";
@@ -9,6 +9,8 @@ import ScreenshotSummary from './ScreenshotSummary.jsx';
 
 export default function Summary({ userAnswers }) {
     const { selectedCategory } = useContext(CategoryContext);
+
+    const [scoreShareState, setScoreShareState] = useState('');
 
     let skippedAnswerCount = 0;
     let correctAnswerCount = 0;
@@ -52,10 +54,52 @@ export default function Summary({ userAnswers }) {
             a.click();
 
             document.getElementById("screenshot-container").classList.add("hidden");
+            setScoreShareState('downloaded');
+
         }).catch(err => {
             console.error("Couldn't take the screenshot!")
         });
     }
+
+    function handleShareClick(goal) {
+        if (scoreShareState === '') {
+            setScoreShareState('downloaded');
+            handleTakeScreenshot();
+        } else if (scoreShareState === 'downloaded' && goal === 'copyLink') {
+            const link = window.location.href;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                // Approach with clipboard API
+                navigator.clipboard.writeText(link).then(() => {
+                    alert("Link copied to clipboard!");
+                }).catch(err => {
+                    console.error("Failed to copy link: ", err);
+                });
+            } else {
+                // Fallback for iOS devices and older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = link;
+                // hiding textarea visibility
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert("Link copied to clipboard!");
+                } catch (err) {
+                    console.error("Failed to copy link: ", err);
+                }
+                document.body.removeChild(textArea);
+            }
+        } else if (scoreShareState === 'downloaded' && goal === 'shareToInsta') {
+            const instaUrl = 'instagram://camera';
+            window.location.href = instaUrl;
+        }
+    }
+
+
 
     return (
         <ContentBox>
@@ -86,7 +130,31 @@ export default function Summary({ userAnswers }) {
                 </p>
             </div>
 
-            <button onClick={handleTakeScreenshot}>Share to socails</button>
+            <div className="flex justify-center space-x-4">
+                <button
+                    onClick={handleTakeScreenshot}
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow-md transition-colors duration-300"
+                >
+                    Download Score
+                </button>
+                {scoreShareState === 'downloaded' && (
+                    <>
+                        <button
+                            onClick={() => handleShareClick('copyLink')}
+                            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow-md transition-colors duration-300"
+                        >
+                            Copy Link
+                        </button>
+                        <button
+                            onClick={() => handleShareClick('shareToInsta')}
+                            className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded shadow-md transition-colors duration-300"
+                        >
+                            Share to Insta
+                        </button>
+                    </>
+                )}
+            </div>
+
             <ol className="list-inside mt-4 space-y-4">
                 {userAnswers.map((answer, index) => {
                     const isCorrect = QUESTIONS[selectedCategory][index].answers[0] === answer;
@@ -111,11 +179,11 @@ export default function Summary({ userAnswers }) {
                     );
                 })}
             </ol>
-            <ScreenshotSummary 
+            <ScreenshotSummary
                 skippedAnswerCount={skippedAnswerCount}
                 correctAnswerCount={correctAnswerCount}
-                incorrectAnswerCount={incorrectAnswerCount} 
-                />
+                incorrectAnswerCount={incorrectAnswerCount}
+            />
         </ContentBox>
     );
 }

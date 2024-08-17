@@ -1,9 +1,15 @@
 import { useContext } from "react";
 import ToggleTheme from "./ToggleTheme";
-import { CategoryContext } from "../contexts/CategoryContext";
+import { CategoryContext } from "../contexts/CategoryContext.jsx";
+import Categories from "./Categories.jsx";
 
 export default function Header() {
     const { selectedCategory } = useContext(CategoryContext);
+
+    const categoryName = selectedCategory && Categories[selectedCategory]
+        ? Categories[selectedCategory].name
+        : '';
+
     return (
         <nav className="relative container flex flex-col md:flex-row items-center justify-between p-4">
             <h1 className="font-friends text-xl font-semibold dark:text-white text-center mb-2 md:mb-0">
@@ -14,8 +20,8 @@ export default function Header() {
                     The QUIZZER
                 </button>
             </h1>
-            <span className="font-quicksand text-2xl text-blue-600 mb-2 md:mb-0 text-center">
-                {selectedCategory}
+            <span className="font-sf font-bold text-2xl dark:text-white text-black mb-2 md:mb-0 text-center">
+                {categoryName}
             </span>
             <div className="mb-2 md:mb-0">
                 <ToggleTheme />
