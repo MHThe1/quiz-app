@@ -4,7 +4,10 @@ import Header from './components/Header';
 import { ThemeMode } from './components/ToggleTheme';
 import Footer from './components/Footer';
 import Quiz from "./components/Quiz.jsx";
-import ToggleTheme from "./components/ToggleTheme.jsx";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 import { CategoryContext } from "./contexts/CategoryContext.jsx";
 import CategorySelection from "./components/CategorySelection.jsx";

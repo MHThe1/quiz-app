@@ -1,35 +1,49 @@
-import friendsPic from "../assets/friendsPic.jpg";
-import bnnPic from "../assets/bnnPic.jpg";
-import himymPic from "../assets/himymPic.jpg";
-import theOfficePic from "../assets/theOfficePic.jpg";
-import bbtPic from "../assets/bbtPic.jpg";
+import friendsPic1 from "../assets/friendsPic1.jpg";
+import friendsPic2 from "../assets/friendsPic2.jpg";
+import friendsPic3 from "../assets/friendsPic3.jpg";
+
+import bnnPic1 from "../assets/bnnPic1.jpg";
+import bnnPic2 from "../assets/bnnPic2.jpg";
+import bnnPic3 from "../assets/bnnPic3.jpg";
+
+import himymPic1 from "../assets/himymPic1.jpg";
+import himymPic2 from "../assets/himymPic2.jpg";
+import himymPic3 from "../assets/himymPic3.jpg";
+
+import theOfficePic1 from "../assets/theOfficePic1.jpg";
+import theOfficePic2 from "../assets/theOfficePic2.jpg";
+import theOfficePic3 from "../assets/theOfficePic3.jpg";
+
+import bbtPic1 from "../assets/bbtPic1.jpg";
+import bbtPic2 from "../assets/bbtPic2.jpg";
+import bbtPic3 from "../assets/bbtPic3.jpg";
 
 const Categories = {
     friends: {
         name: "F.R.I.E.N.D.S.",
-        image: friendsPic,
+        images: [friendsPic1, friendsPic2, friendsPic3],
         alt: "FRIENDS",
     },
     brooklynNineNine: {
         name: "Brooklyn Nine Nine",
-        image: bnnPic,
+        images: [bnnPic1, bnnPic2, bnnPic3],
         alt: "Brooklyn Nine Nine",
     },
     himym: {
         name: "How I Met Your Mother",
-        image: himymPic,
+        images: [himymPic1, himymPic2, himymPic3],
         alt: "How I Met Your Mother",
     },
     theOffice: {
         name: "The Office",
-        image: theOfficePic,
+        images: [theOfficePic1, theOfficePic2, theOfficePic3],
         alt: "The Office",
     },
     bigBangTheory: {
         name: "The Big Bang Theory",
-        image: bbtPic,
+        images: [bbtPic1, bbtPic2, bbtPic3],
         alt: "Big Bang Theory",
     }
-}
+};
 
 export default Categories;
