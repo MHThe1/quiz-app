@@ -21,6 +21,9 @@ export default function ScreenshotSummary({ skippedAnswerCount, correctAnswerCou
         prompt = `Silly you! Forgot all about ${categoryName} already?`;
     }
 
+    const indexImg = Math.floor(Math.random() * categoryValue.images.length);
+    console.log(indexImg);
+
     return (
         <div id="screenshot-container" className="hidden w-[432px] h-[932px] bg-neutral-100 dark:bg-neutral-900">
             <div className='font-friends text-xl font-semibold dark:text-white text-center pt-40 mb-2 md:mb-0'>
@@ -34,7 +37,7 @@ export default function ScreenshotSummary({ skippedAnswerCount, correctAnswerCou
                 <div className="text-center m-4">
                     <img
                         className="w-full h-full object-cover rounded-lg mb-4"
-                        src={categoryValue.images[0]}
+                        src={categoryValue.images[indexImg]}
                         alt={categoryValue.alt}
                     />
                 </div>

@@ -73,8 +73,18 @@ export default function Question({
 
     return (
         <ContentBox>
+            <div className="flex items-center justify-center mb-2 space-x-2">
+                <h3 className="flex items-center justify-center text-xl font-bold bg-sky-300 dark:bg-purple-400 rounded-full w-8 h-8">
+                    {index + 1}
+                </h3>
+                <span className="text-xl">of</span>
+                <h3 className="flex items-center justify-center text-xl font-bold bg-sky-300 dark:bg-purple-400 rounded-full w-8 h-8">
+                    20
+                </h3>
+            </div>
+
             <h2 className="mb-3 text-2xl">
-                {index + 1}. {QUESTIONS[selectedCategory][index].text}
+                {QUESTIONS[selectedCategory][index].text}
             </h2>
 
             <Answers
@@ -88,7 +98,7 @@ export default function Question({
                 timeout={timer}
                 onTimeout={answer.selectedAnswer === '' ? onTimeout : null} />
 
-            <div className="flex flex-col mt-10 items-center w-full px-4">
+            <div className="flex flex-col mt-4 items-center w-full px-4">
                 <button
                     className={`py-2 px-4 m-2 ${buttonsDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-yellow-400 hover:bg-yellow-500'} text-white rounded-md`}
                     onClick={handleSkipAnswer}

@@ -26,8 +26,8 @@ export default function CategorySelection() {
     };
 
     return (
-        <section className="max-w-[85rem] mx-auto my-8 p-4 border-2 dark:border-purple-600 border-sky-200 rounded-md">
-            <h2 className="font-quicksand text-center font-bold text-xl text-cyan-700 dark:text-cyan-400">Quiz Categories</h2>
+        <section className="max-w-[85rem] mx-auto my-8 p-4 dark:bg-purple-900 bg-sky-200 rounded-md">
+            <h2 className="font-quicksand text-center font-bold text-2xl text-stone-900 dark:text-stone-100">Quiz Categories</h2>
             {categoriesArray.length > 0 && (
                 <ul className="w-auto h-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mx-auto my-8 p-1 list-none">
                     {categoriesArray.map(([categoryKey, categoryValue], index) => (
