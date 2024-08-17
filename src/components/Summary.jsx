@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { CategoryContext } from "../contexts/CategoryContext.jsx";
 import Categories from './Categories.jsx';
 import html2canvas from 'html2canvas';
+import ScreenshotSummary from './ScreenshotSummary.jsx';
 
 export default function Summary({ userAnswers }) {
     const { selectedCategory } = useContext(CategoryContext);
@@ -37,7 +38,9 @@ export default function Summary({ userAnswers }) {
     const categoryValue = Categories[selectedCategory];
 
     const handleTakeScreenshot = () => {
-        const element = document.getElementById("screenshotingThis");
+        document.getElementById("screenshot-container").classList.remove("hidden");
+
+        const element = document.getElementById("screenshot-container");
         if (!element) {
             return;
         }
@@ -47,67 +50,72 @@ export default function Summary({ userAnswers }) {
             a.href = image;
             a.download = "QuizResult.jpeg";
             a.click();
+
+            document.getElementById("screenshot-container").classList.add("hidden");
         }).catch(err => {
             console.error("Couldn't take the screenshot!")
-        })
+        });
     }
 
     return (
         <ContentBox>
-            <div id="screenshotingThis">
-                <div className="container text-center dark:text-stone-50 text-stone-950 text-3xl m-2">Quiz Completed!</div>
-                {categoryValue && categoryValue.images && (
-                    <Slider {...sliderSettings}>
-                        {categoryValue.images.map((image, i) => (
-                            <div key={i} className='w-full h-full border-2 border-white rounded-lg'>
-                                <img
-                                    className="h-[15rem] sm:h-[18rem] w-full object-cover rounded-lg"
-                                    src={image} alt={categoryValue.alt} />
-                            </div>
-                        ))}
-                    </Slider>
-                )}
-                    <div className="flex justify-center items-center font-handjet text-xl my-4">
-                        <p className="flex flex-col justify-center items-center border-r border-gray-300 pr-4 flex-1">
-                            <span className="text-2xl mb-2">{skippedAnswerCount}</span>
-                            <span>skipped</span>
-                        </p>
-                        <p className="flex flex-col justify-center items-center border-r border-gray-300 pr-4 flex-1">
-                            <span className="text-2xl mb-2">{correctAnswerCount}</span>
-                            <span>correct</span>
-                        </p>
-                        <p className="flex flex-col justify-center items-center flex-1">
-                            <span className="text-2xl mb-2">{incorrectAnswerCount}</span>
-                            <span>incorrect</span>
-                        </p>
-                    </div>
-
-                    <button onClick={handleTakeScreenshot}>Share to socails</button>
-                    <ol className="list-inside mt-4 space-y-4">
-                        {userAnswers.map((answer, index) => {
-                            const isCorrect = QUESTIONS[selectedCategory][index].answers[0] === answer;
-                            const isSkipped = answer === null;
-
-                            return (
-                                <li key={index} className="bg-sky-400 dark:bg-purple-600 p-4 rounded-lg shadow-md">
-                                    <div className="flex justify-center mb-2">
-                                        <h3 className="flex items-center justify-center text-xl font-bold bg-sky-200 dark:bg-purple-400 rounded-full size-8">
-                                            {index + 1}
-                                        </h3>
-                                    </div>
-
-                                    <p className="text-lg mb-2">{QUESTIONS[selectedCategory][index].text}</p>
-                                    <p className={`text-lg rounded-md p-1 ${isSkipped ? 'bg-gray-700 text-white' : isCorrect ? 'bg-green-400' : 'bg-red-500'}`}>
-                                        {answer ?? 'Skipped'}
-                                    </p>
-                                    {!isCorrect && <p className="text-lg mt-2 rounded-md p-1 bg-green-400">
-                                        Correct answer: {QUESTIONS[selectedCategory][index].answers[0]}
-                                    </p>}
-                                </li>
-                            );
-                        })}
-                    </ol>
+            <div className="container text-center dark:text-stone-50 text-stone-950 text-3xl m-2">Quiz Completed!</div>
+            {categoryValue && categoryValue.images && (
+                <Slider {...sliderSettings}>
+                    {categoryValue.images.map((image, i) => (
+                        <div key={i} className='w-full h-full border-2 border-white rounded-lg'>
+                            <img
+                                className="h-[15rem] sm:h-[18rem] w-full object-cover rounded-lg"
+                                src={image} alt={categoryValue.alt} />
+                        </div>
+                    ))}
+                </Slider>
+            )}
+            <div className="flex justify-center items-center font-handjet text-xl my-4">
+                <p className="flex flex-col justify-center items-center border-r border-gray-300 pr-4 flex-1">
+                    <span className="text-2xl mb-2">{skippedAnswerCount}</span>
+                    <span>skipped</span>
+                </p>
+                <p className="flex flex-col justify-center items-center border-r border-gray-300 pr-4 flex-1">
+                    <span className="text-2xl mb-2">{correctAnswerCount}</span>
+                    <span>correct</span>
+                </p>
+                <p className="flex flex-col justify-center items-center flex-1">
+                    <span className="text-2xl mb-2">{incorrectAnswerCount}</span>
+                    <span>incorrect</span>
+                </p>
             </div>
+
+            <button onClick={handleTakeScreenshot}>Share to socails</button>
+            <ol className="list-inside mt-4 space-y-4">
+                {userAnswers.map((answer, index) => {
+                    const isCorrect = QUESTIONS[selectedCategory][index].answers[0] === answer;
+                    const isSkipped = answer === null;
+
+                    return (
+                        <li key={index} className="bg-sky-400 dark:bg-purple-600 p-4 rounded-lg shadow-md">
+                            <div className="flex justify-center mb-2">
+                                <h3 className="flex items-center justify-center text-xl font-bold bg-sky-200 dark:bg-purple-400 rounded-full size-8">
+                                    {index + 1}
+                                </h3>
+                            </div>
+
+                            <p className="text-lg mb-2">{QUESTIONS[selectedCategory][index].text}</p>
+                            <p className={`text-lg rounded-md p-1 ${isSkipped ? 'bg-gray-700 text-white' : isCorrect ? 'bg-green-400' : 'bg-red-500'}`}>
+                                {answer ?? 'Skipped'}
+                            </p>
+                            {!isCorrect && <p className="text-lg mt-2 rounded-md p-1 bg-green-400">
+                                Correct answer: {QUESTIONS[selectedCategory][index].answers[0]}
+                            </p>}
+                        </li>
+                    );
+                })}
+            </ol>
+            <ScreenshotSummary 
+                skippedAnswerCount={skippedAnswerCount}
+                correctAnswerCount={correctAnswerCount}
+                incorrectAnswerCount={incorrectAnswerCount} 
+                />
         </ContentBox>
     );
 }
