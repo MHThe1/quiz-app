@@ -9,7 +9,17 @@ const questions = {
     { id: 'q7', text: 'What job does Chandler do at the beginning of the series?', answers: ['Data processor', 'Advertising executive', 'Transponster', 'Accountant'] },
     { id: 'q8', text: 'What does Rachel’s sister Amy call Emma, Rachel and Ross’s baby?', answers: ['Ella', 'Emily', 'Emmett', 'Esme'] },
     { id: 'q9', text: 'Which friend was famously overweight as a teenager?', answers: ['Monica', 'Chandler', 'Joey', 'Rachel'] },
-    { id: 'q10', text: 'What was the name of Ross’s second wife?', answers: ['Emily', 'Rachel', 'Carol', 'Susan'] }
+    { id: 'q10', text: 'What was the name of Ross’s second wife?', answers: ['Emily', 'Rachel', 'Carol', 'Susan'] },
+    { id: 'q11', text: 'What was the name of the coffee shop where Rachel worked after she left Central Perk?', answers: ['Ralph Lauren', 'Stryker’s', 'Central Perk', 'Gunther’s Café'] },
+    { id: 'q12', text: 'What is Joey’s favorite food?', answers: ['Pizza', 'Sandwiches', 'Burgers', 'Pasta'] },
+    { id: 'q13', text: 'What is the name of Ross and Monica’s dog?', answers: ['Chi-Chi', 'Amy', 'Coco', 'Rita'] },
+    { id: 'q14', text: 'Which character was a paleontologist?', answers: ['Ross', 'Chandler', 'Joey', 'Phoebe'] },
+    { id: 'q15', text: 'What is the name of Phoebe’s song about a cat?', answers: ['Smelly Cat', 'Fluffy Cat', 'Wicked Cat', 'Crazy Cat'] },
+    { id: 'q16', text: 'Which character worked at the coffee shop Central Perk?', answers: ['Rachel', 'Phoebe', 'Monica', 'Janice'] },
+    { id: 'q17', text: 'What is the name of Monica’s restaurant?', answers: ['Alessandro’s', 'Mamma Mia', 'Central Perk', 'Ralph Lauren'] },
+    { id: 'q18', text: 'Which character famously danced in the “Routine” at the school dance?', answers: ['Ross and Monica', 'Joey and Rachel', 'Chandler and Phoebe', 'Rachel and Monica'] },
+    { id: 'q19', text: 'Who gets trapped in an ATM vestibule with a supermodel?', answers: ['Chandler', 'Joey', 'Ross', 'Monica'] },
+    { id: 'q20', text: 'What is the name of Ross’s second wife’s stepmother?', answers: ['Emily', 'Susan', 'Carol', 'Rachel'] },
   ],
 
   brooklynNineNine: [
@@ -22,8 +32,19 @@ const questions = {
     { id: 'q7', text: 'What is Captain Holt’s husband’s name?', answers: ['Kevin Cozner', 'Jake Peralta', 'Terry Jeffords', 'Charles Boyle'] },
     { id: 'q8', text: 'What is Rosa Diaz’s favorite type of music?', answers: ['Heavy metal', 'Jazz', 'Classical', 'Pop'] },
     { id: 'q9', text: 'Which character often says “Cool, cool, cool, cool, cool, cool, cool, cool, cool, cool, cool.”?', answers: ['Jake Peralta', 'Terry Jeffords', 'Charles Boyle', 'Gina Linetti'] },
-    { id: 'q10', text: 'What is Captain Holt’s favorite hobby?', answers: ['Star Trek', 'Cooking', 'Golf', 'Reading'] }
-  ],
+    { id: 'q10', text: 'What is Captain Holt’s favorite hobby?', answers: ['Star Trek', 'Cooking', 'Golf', 'Reading'] },
+    { id: 'q11', text: 'What is the name of Jake Peralta’s favorite action movie series?', answers: ['Die Hard', 'Lethal Weapon', 'Bad Boys', 'The Fast and the Furious'] },
+    { id: 'q12', text: 'What is Amy Santiago’s biggest goal?', answers: ['To become a captain', 'To open a bakery', 'To travel the world', 'To become a detective'] },
+    { id: 'q13', text: 'What does Terry Jeffords name his children?', answers: ['Caitlyn and Jack', 'Josh and Daisy', 'Michael and Katie', 'Erica and Finn'] },
+    { id: 'q14', text: 'What is Rosa Diaz’s favorite way to unwind?', answers: ['Motorcycling', 'Yoga', 'Cooking', 'Painting'] },
+    { id: 'q15', text: 'What is the name of the precinct’s break room table?', answers: ['The Table of Lies', 'The Potato Table', 'The Breakfast Table', 'The Cop Table'] },
+    { id: 'q16', text: 'What is Charles Boyle’s favorite food?', answers: ['Chicken', 'Pizza', 'Hot dogs', 'Salad'] },
+    { id: 'q17', text: 'What is Gina Linetti’s job title?', answers: ['Civilian administrator', 'Detective', 'Captain', 'Forensic expert'] },
+    { id: 'q18', text: 'What is Jake Peralta’s favorite holiday?', answers: ['Christmas', 'Halloween', 'Thanksgiving', 'New Year’s'] },
+    { id: 'q19', text: 'What is Captain Holt’s dog’s name?', answers: ['Cheddar', 'Rex', 'Rover', 'Max'] },
+    { id: 'q20', text: 'What is the name of Jake and Amy’s baby?', answers: ['Enigma', 'Elliot', 'Eleanor', 'Ella'] }
+]
+,
 
   himym: [
     { id: 'q1', text: 'What is the name of Ted\'s on-again, off-again girlfriend?', answers: ['Robin', 'Lily', 'Victoria', 'Stella'] },
@@ -35,7 +56,17 @@ const questions = {
     { id: 'q7', text: 'What job does Barney have?', answers: ['Please', 'Banker', 'Lawyer', 'Architect'] },
     { id: 'q8', text: 'What is the name of Ted\'s college girlfriend?', answers: ['Karen', 'Trudy', 'Victoria', 'Jeanette'] },
     { id: 'q9', text: 'What fruit does Ted wake up to after a drunken night out?', answers: ['Pineapple', 'Apple', 'Banana', 'Orange'] },
-    { id: 'q10', text: 'Which character is Canadian?', answers: ['Robin', 'Barney', 'Lily', 'Ted'] }
+    { id: 'q10', text: 'Which character is Canadian?', answers: ['Robin', 'Barney', 'Lily', 'Ted'] },
+    { id: 'q11', text: 'What is the name of the high school where Ted and Barney first met?', answers: ['Harrison High', 'Haverford High', 'Lincoln High', 'Westfield High'] },
+    { id: 'q12', text: 'What is the name of Barney’s alter ego that he uses to pick up women?', answers: ['The Stinson', 'The Bro', 'The Suit', 'The Wingman'] },
+    { id: 'q13', text: 'What does Ted call the group’s Sunday brunch?', answers: ['Brunch Club', 'The Sunday Funday', 'The Brunch Bunch', 'The Weekend Feast'] },
+    { id: 'q14', text: 'Which city does Robin move to for her job in the later seasons?', answers: ['Tokyo', 'New York', 'Chicago', 'Toronto'] },
+    { id: 'q15', text: 'What is the name of the bar where Ted and his friends often meet?', answers: ['MacLaren’s Pub', 'The Pub', 'The Bar', 'The Tavern'] },
+    { id: 'q16', text: 'What is the name of Marshall’s law firm?', answers: ['Norseman Law Firm', 'Parker & Parker', 'Harrison & Harrison', 'Herman & Johnson'] },
+    { id: 'q17', text: 'What does Barney often say to assert his confidence?', answers: ['“Suit up!”', '“Legendary!”', '“Challenge accepted!”', '“That’s awesome!”'] },
+    { id: 'q18', text: 'What does Ted call the building where he lives?', answers: ['The Airstream', 'The Arcadia', 'The Montauk', 'The Central'] },
+    { id: 'q19', text: 'What is the name of the play that Barney stars in during the show?', answers: ['The Playbook', 'The Bro Code', 'The Lotus', 'The Play'] },
+    { id: 'q20', text: 'What is the name of the girl who steals Ted’s heart in the series finale?', answers: ['Tracy McConnell', 'Victoria', 'Stella', 'Robin'] }
   ],
 
 
@@ -49,7 +80,17 @@ const questions = {
     { id: 'q7', text: 'Who becomes the new Regional Manager at the end of the series?', answers: ['Jim Halpert', 'Dwight Schrute', 'Michael Scott', 'Andy Bernard'] },
     { id: 'q8', text: 'What is the name of the show within the show?', answers: ['The Office', 'Dunder Mifflin', 'Jim & Pam', 'Threat Level Midnight'] },
     { id: 'q9', text: 'What does Dwight call his office at his farm?', answers: ['The Beet Farm', 'The Schrute Estate', 'The Dark Lord’s Lair', 'The Office'] },
-    { id: 'q10', text: 'What is Michael Scott’s favorite song?', answers: ['“That’s What She Said”', '“Take Me Home, Country Roads”', '“The Little Drummer Boy”', '“The First Noel”'] }
+    { id: 'q10', text: 'What is Michael Scott’s favorite song?', answers: ['“That’s What She Said”', '“Take Me Home, Country Roads”', '“The Little Drummer Boy”', '“The First Noel”'] },
+    { id: 'q11', text: 'What is Dwight’s nickname for his beet farm?', answers: ['Schrute Farms', 'The Beet Barn', 'The Farm', 'Dwight’s Estate'] },
+    { id: 'q12', text: 'What is Michael Scott’s nickname for his office space?', answers: ['The Michael Scott Paper Company', 'The Scott Cave', 'The Bunker', 'The Office'] },
+    { id: 'q13', text: 'What is Jim’s favorite prank to play on Dwight?', answers: ['Putting his stapler in Jell-O', 'Sending him fake faxes', 'Hiding his desk', 'Stealing his bobblehead'] },
+    { id: 'q14', text: 'What is the name of the receptionist who replaces Pam in the later seasons?', answers: ['Erin Hannon', 'Angela Martin', 'Kelly Kapoor', 'Jan Levinson'] },
+    { id: 'q15', text: 'What is Pam’s profession before she becomes a saleswoman?', answers: ['Receptionist', 'Customer Service Representative', 'Graphic Designer', 'Office Manager'] },
+    { id: 'q16', text: 'What is the name of the documentary crew’s producer?', answers: ['Greg Daniels', 'Elan Gold', 'Toby Flenderson', 'David Wallace'] },
+    { id: 'q17', text: 'What is the name of Michael Scott’s “inspirational” seminar?', answers: ['Michael Scott’s Fun Time Seminar', 'The Scott Seminar', 'The Motivational Seminar', 'The Scott Way'] },
+    { id: 'q18', text: 'What does Dwight keep in his “world’s best boss” mug?', answers: ['Pens', 'Cough drops', 'Candy', 'Mints'] },
+    { id: 'q19', text: 'What does Andy Bernard use as his ringtone?', answers: ['“Take Me Home, Country Roads”', '“The Office Theme”', '“The Lonely Island”', '“Here Comes the Sun”'] },
+    { id: 'q20', text: 'What is the name of Jim and Pam’s second child?', answers: ['Philip', 'Cecilia', 'Emily', 'Sophie'] },
   ],
 
   bigBangTheory: [
@@ -62,7 +103,17 @@ const questions = {
     { id: 'q7', text: 'What is the name of Sheldon’s favorite comic book store?', answers: ['The Comic Center of Pasadena', 'The Nerd Emporium', 'The Geek Hut', 'The Comic Cave'] },
     { id: 'q8', text: 'What is the name of the group of friends in the show?', answers: ['The Big Bang Theory', 'The Nerd Herd', 'The Geek Squad', 'The Brain Trust'] },
     { id: 'q9', text: 'What is Penny’s last name?', answers: ['Hofstadter', 'Harrison', 'Wheaton', 'Rostenkowski'] },
-    { id: 'q10', text: 'What is Rajesh’s pet name for his dog?', answers: ['Cinnamon', 'Peanut', 'Buddy', 'Max'] }
+    { id: 'q10', text: 'What is Rajesh’s pet name for his dog?', answers: ['Cinnamon', 'Peanut', 'Buddy', 'Max'] },
+    { id: 'q11', text: 'What is the name of the group’s favorite comic book store?', answers: ['The Comic Center of Pasadena', 'The Nerd Emporium', 'The Geek Spot', 'The Comic Book Cave'] },
+    { id: 'q12', text: 'What is Leonard’s apartment number?', answers: ['4A', '4B', '5A', '5B'] },
+    { id: 'q13', text: 'What does Sheldon believe is his “personal flag”?', answers: ['A flag with his face on it', 'The flag of the United Nations', 'The American flag', 'A flag with a superhero emblem'] },
+    { id: 'q14', text: 'What is Howard’s mother’s name?', answers: ['Mrs. Wolowitz', 'Esther Wolowitz', 'Miriam Wolowitz', 'Rita Wolowitz'] },
+    { id: 'q15', text: 'What is Penny’s job in the earlier seasons?', answers: ['Waitress', 'Sales Representative', 'Nurse', 'Barista'] },
+    { id: 'q16', text: 'What does Sheldon call his spot on the couch?', answers: ['His spot', 'The Sheldon Spot', 'The Comfort Zone', 'The Prime Location'] },
+    { id: 'q17', text: 'What is the name of the group’s favorite TV show?', answers: ['Star Wars', 'Star Trek', 'Doctor Who', 'Battlestar Galactica'] },
+    { id: 'q18', text: 'What is Rajesh’s job at the university?', answers: ['Astrophysicist', 'Biochemist', 'Geneticist', 'Computer Scientist'] },
+    { id: 'q19', text: 'What is the name of Sheldon’s roommate agreement?', answers: ['The Roommate Agreement', 'The Living Agreement', 'The Apartment Rules', 'The Shared Space Agreement'] },
+    { id: 'q20', text: 'What is Leonard’s favorite hobby?', answers: ['Playing video games', 'Reading comics', 'Collecting action figures', 'Playing board games'] }
   ]
 };
 
