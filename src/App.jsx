@@ -12,6 +12,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { CategoryContext } from "./contexts/CategoryContext.jsx";
 import CategorySelection from "./components/CategorySelection.jsx";
 
+import { Analytics } from "@vercel/analytics/react";
+
+
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -27,6 +30,7 @@ function App() {
           </main>
           <Footer />
         </div>
+        <Analytics />
       </CategoryContext.Provider>
     </div>
   );
