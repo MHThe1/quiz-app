@@ -69,6 +69,8 @@ export default function Question({
         answerState = 'answered';
     }
 
+    const buttonsDisabled = answer.selectedAnswer !== '';
+
     return (
         <ContentBox>
             <h2 className="mb-3 text-2xl">
@@ -88,14 +90,16 @@ export default function Question({
 
             <div className="flex flex-col mt-10 items-center w-full px-4">
                 <button
-                    className="py-2 px-4 m-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-md"
+                    className={`py-2 px-4 m-2 ${buttonsDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-yellow-400 hover:bg-yellow-500'} text-white rounded-md`}
                     onClick={handleSkipAnswer}
+                    disabled={buttonsDisabled}
                 >
                     Skip Answer
                 </button>
                 <button
-                    className="py-2 px-4 mb-2 bg-red-400 hover:bg-red-500 text-white rounded-md"
+                    className={`py-2 px-4 mb-2 ${buttonsDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-400 hover:bg-red-500'} text-white rounded-md`}
                     onClick={handleSkipAll}
+                    disabled={buttonsDisabled}
                 >
                     Skip All
                 </button>
