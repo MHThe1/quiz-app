@@ -19,7 +19,7 @@ const questions = {
     { id: 'q17', text: 'What is the name of Monica’s restaurant?', answers: ['Alessandro’s', 'Mamma Mia', 'Central Perk', 'Ralph Lauren'] },
     { id: 'q18', text: 'Which character famously danced in the “Routine” at the school dance?', answers: ['Ross and Monica', 'Joey and Rachel', 'Chandler and Phoebe', 'Rachel and Monica'] },
     { id: 'q19', text: 'Who gets trapped in an ATM vestibule with a supermodel?', answers: ['Chandler', 'Joey', 'Ross', 'Monica'] },
-    { id: 'q20', text: 'What is the name of Ross’s second wife’s stepmother?', answers: ['Emily', 'Susan', 'Carol', 'Rachel'] },
+    { id: 'q20', text: 'What is the name of maternal grandmother of Ross and Monica Geller?', answers: ['Althea', 'Emmet', 'Sandra', 'Emily'] },
   ],
 
   brooklynNineNine: [
