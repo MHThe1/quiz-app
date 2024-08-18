@@ -1,6 +1,6 @@
-import QuestionTimer from "./QuestionTimer";
-import ContentBox from "./ContentBox";
-import Answers from "./Answers";
+import QuestionTimer from "./QuestionTimer.jsx";
+import ContentBox from "./ContentBox.jsx";
+import Answers from "./Answers.jsx";
 import { useState, useContext } from "react";
 import QUESTIONS from '../questions.js';
 
@@ -38,7 +38,7 @@ export default function Question({
     function handleSelectAnswer(selectedAnswer) {
         setAnswer((prevAnswer) => {
             const isCorrect = QUESTIONS[selectedCategory][index].answers[0] === selectedAnswer;
-            
+
             if (isCorrect) {
                 correctAudioSe.play();
             } else {
