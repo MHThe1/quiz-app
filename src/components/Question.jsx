@@ -1,10 +1,13 @@
-import QuestionTimer from "./QuestionTImer";
+import QuestionTimer from "./QuestionTimer";
 import ContentBox from "./ContentBox";
 import Answers from "./Answers";
 import { useState, useContext } from "react";
 import QUESTIONS from '../questions.js';
 
 import { CategoryContext } from "../contexts/CategoryContext.jsx";
+
+import correctAudio from "../assets/soundeffects/correctAudio.wav";
+import incorrectAudio from "../assets/soundeffects/incorrectAudio.wav";
 
 export default function Question({
     index,
@@ -19,6 +22,9 @@ export default function Question({
         isCorrect: null
     });
 
+    const correctAudioSe = new Audio(correctAudio);
+    const incorrectAudioSe = new Audio(incorrectAudio);
+
     let timer = 10000;
 
     if (answer.selectedAnswer) {
@@ -29,23 +35,25 @@ export default function Question({
         timer = 2000;
     }
 
-    function handleSelectAnswer(answer) {
-        setAnswer({
-            selectedAnswer: answer,
-            isCorrect: null
-        })
+    function handleSelectAnswer(selectedAnswer) {
+        setAnswer((prevAnswer) => {
+            const isCorrect = QUESTIONS[selectedCategory][index].answers[0] === selectedAnswer;
+            
+            if (isCorrect) {
+                correctAudioSe.play();
+            } else {
+                incorrectAudioSe.play();
+            }
+
+            return {
+                selectedAnswer,
+                isCorrect
+            };
+        });
 
         setTimeout(() => {
-            setAnswer({
-                selectedAnswer: answer,
-                isCorrect: QUESTIONS[selectedCategory][index].answers[0] === answer
-            })
-
-            setTimeout(() => {
-                onSelect(answer);
-
-            }, 2000);
-        }, 1000);
+            onSelect(selectedAnswer);
+        }, 2000);
     }
 
     function handleSkipAnswer() {
@@ -115,5 +123,5 @@ export default function Question({
                 </button>
             </div>
         </ContentBox>
-    )
+    );
 }

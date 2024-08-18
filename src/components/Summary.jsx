@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import ContentBox from "./ContentBox.jsx";
 import QUESTIONS from "../questions.js";
 import Slider from "react-slick";
@@ -6,11 +6,23 @@ import { CategoryContext } from "../contexts/CategoryContext.jsx";
 import Categories from './Categories.jsx';
 import html2canvas from 'html2canvas';
 import ScreenshotSummary from './ScreenshotSummary.jsx';
+import scoreboardSound from "../assets/soundeffects/scoreboardSound.mp3";
 
 export default function Summary({ userAnswers }) {
     const { selectedCategory } = useContext(CategoryContext);
 
     const [scoreShareState, setScoreShareState] = useState('');
+
+    useEffect(() => {
+        const scoreboardSoundSe = new Audio(scoreboardSound);
+        scoreboardSoundSe.volume = 0.2;
+        scoreboardSoundSe.play();
+
+        return () => {
+            scoreboardSoundSe.pause();
+            scoreboardSoundSe.currentTime = 0;
+        };
+    }, []);
 
     let skippedAnswerCount = 0;
     let correctAnswerCount = 0;
