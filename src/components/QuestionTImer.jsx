@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 export default function QuestionTimer({ timeout, onTimeout }) {
     const [remainingTime, setRemainingTime] = useState(timeout);
 
+    let dummy;
+
     useEffect(() => {
         console.log("SETTING TIMEOUT");
         const timerId = setTimeout(onTimeout, timeout);
