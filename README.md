@@ -1,11 +1,9 @@
 # The Quizzer
 
-Live at: https://the-quizzer.vercel.app/
----
 The Quizzer is an engaging quiz application where users can select their favorite sitcoms, answer a series of questions, and receive instant feedback on their knowledge. After completing a quiz, users can download their results and share them on social media.
 
 ## 🚀 Live Demo
-Check out the live version of The Quizzer here: The Quizzer
+Check out the live version of The Quizzer here: https://the-quizzer.vercel.app/
 
 ## 🛠 Features
 Sitcom Selection: Choose from a variety of popular sitcoms to test your knowledge.
